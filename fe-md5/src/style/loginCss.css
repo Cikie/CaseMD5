@@ -1,0 +1,74 @@
+html {
+    background: url("anh-nen-meo-cute_031335965.jpg") no-repeat;
+}
+
+.box {
+    background-color: rgba(0, 114, 151, 0.16);
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 5px lightblue;
+
+}
+
+.form-control {
+    max-height: 380px;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.4rem;
+    position: relative;
+}
+
+.btn{
+    width: 150px;
+    height: 49px;
+    outline: none;
+    border: none;
+    border-radius: 48px;
+    background-color: #20dbc2;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: all 0.5s;
+}
+
+.btn:hover{
+    background: #00bfa6;
+}
+
+.form-control{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 20px 0;
+}
+.form-control input{
+    width: 100%;
+    padding:0 5px;
+    height: 40px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.form-label1{
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.form-label{
+    font-size: 16px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 900;
+    padding-left: 10px;
+}
