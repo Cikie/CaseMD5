@@ -1,9 +1,10 @@
-export default function listBlog(){
+ function AddBlog(){
     return(
         <div className={"row"}>
             <div className="col-12">
-                List Block
+                Add Block
             </div>
         </div>
     )
 }
+export default AddBlog

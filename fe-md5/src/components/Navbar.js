@@ -1,6 +1,4 @@
 import {Link} from "react-router-dom";
-import "../style/loginCss.css"
-
 export default function Navbar() {
     return (
         <div >
@@ -18,9 +16,6 @@ export default function Navbar() {
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
                                         <Link className="nav-link active" aria-current="page" to="add-blog">Add Blog</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link disabled">Disabled</a>
                                     </li>
                                 </ul>
                                 <Link style={{color: "white", textDecoration: "none"}} to={'/'}>

@@ -18,8 +18,8 @@ export default function Login() {
                         <Form>
                             <h1 className={'title'} style={{textAlign: "center"}}>Login</h1>
                             <div className="mb-3">
-                                <label htmlFor="exampleInputEmail1" className="form-label">User Name</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1"
+                                <label htmlFor="exampleInputEmail1" className="form-label">UserName</label>
+                                <input type="text" className="form-control" id="exampleInputEmail1"
                                        aria-describedby="emailHelp"/>
                             </div>
 
@@ -27,7 +27,10 @@ export default function Login() {
                                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1"/>
                             </div>
-                            <button style={{width: '100%'}} type="submit" className="btn btn-primary">Login</button>
+                            <Link style={{color: "white", textDecoration: "none"}} to={'home'}>
+                                <button style={{width:"100%"}} type="submit" className="btn btn-primary">Login
+                                </button>
+                            </Link>
                             <Link style={{color: "white", textDecoration: "none"}} to={'register'}>
                                 <button style={{marginLeft: 110}} type="submit" className="btn btn-primary">Register
                                 </button>
