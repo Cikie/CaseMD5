@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getBlogs} from "../../../services/blogServices";
+import {login} from "../../../services/userServices";
 
 function ListBlog() {
     const dispatch = useDispatch();
@@ -10,6 +11,13 @@ function ListBlog() {
 
     useEffect(() => {
         dispatch(getBlogs())
+    }, [])
+
+    useEffect(() => {
+        dispatch(login({
+            userName:'cao',
+            password:'123456'
+        }));
     }, [])
     return (
         <div className={"row"}>
@@ -34,7 +42,6 @@ function ListBlog() {
                             </tr>
                         ))
                     }
-
                     </tbody>
                 </table>
             </div>

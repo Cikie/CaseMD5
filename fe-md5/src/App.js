@@ -5,6 +5,8 @@ import Register from "./pages/Register";
 import Home from "./pages/Home/Home";
 import ListBlog from "./pages/Home/blog/listBlog";
 import AddBlog from "./pages/Home/blog/addBlog";
+import Admin from "./pages/Home/Admin/Admin";
+
 function App() {
     return (
         <>
@@ -16,6 +18,7 @@ function App() {
                     <Route path={''} element={<ListBlog/>}></Route>
                     <Route path={'add-blog'} element={<AddBlog/>}></Route>
                 </Route>
+                <Route path={'admin'} element={<Admin/>}/>
             </Routes>
         </>
     )

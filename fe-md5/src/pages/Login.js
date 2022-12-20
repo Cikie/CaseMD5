@@ -1,8 +1,29 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "../style/loginCss.css"
-import {Form, Formik} from "formik";
+import {Field, Form, Formik} from "formik";
+import {useDispatch} from "react-redux";
+import {login} from "../services/userServices";
 
 export default function Login() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+    const handleLogin = async (values) => {
+        let checkLogin = await dispatch(login(values))
+        console.log(checkLogin)
+        if (checkLogin.payload.data.token) {
+            if (checkLogin.payload.data.userName === values.userName) {
+                if (checkLogin.payload.data.role) {
+                    navigate('/admin')
+                } else {
+                    return navigate('/home')
+                }
+            }
+        } else {
+            alert('Sai cmnr')
+            values.userName = ''
+            values.password = ''
+        }
+    }
     return (
         <div>
             <div className="row">
@@ -10,27 +31,25 @@ export default function Login() {
                     <Formik
                         initialValues={{
                             userName: '',
-                            passWord: ''
+                            password: ''
                         }}
-                        onSubmit={() => {
-
+                        onSubmit={(values) => {
+                            handleLogin(values)
                         }}>
                         <Form>
                             <h1 className={'title'} style={{textAlign: "center"}}>Login</h1>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label">UserName</label>
-                                <input type="text" className="form-control" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp"/>
+                                <Field type="text" className="form-control" id="exampleInputEmail1" name={'userName'}/>
                             </div>
 
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1"/>
+                                <Field type="password" className="form-control" id="exampleInputPassword1"
+                                       name={'password'}/>
                             </div>
-                            <Link style={{color: "white", textDecoration: "none"}} to={'home'}>
-                                <button style={{width:"100%"}} type="submit" className="btn btn-primary">Login
-                                </button>
-                            </Link>
+                            <button style={{width: "100%"}} type="submit" className="btn btn-primary">Login
+                            </button>
                             <Link style={{color: "white", textDecoration: "none"}} to={'register'}>
                                 <button style={{marginLeft: 110}} type="submit" className="btn btn-primary">Register
                                 </button>
