@@ -25,7 +25,7 @@ export default function Navbar() {
                                         <Link className="nav-link active" aria-current="page" to="add-blog">Add
                                             Blog</Link>
                                     </li>
-                                    //phut mot em oiii =))
+
                                 </ul>
                                 <button style={{marginLeft: 10}} type="submit" className="btn btn-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
