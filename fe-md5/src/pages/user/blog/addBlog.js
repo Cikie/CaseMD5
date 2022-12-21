@@ -11,12 +11,13 @@ import {
     list,
 } from "firebase/storage";
 import {v4} from "uuid";
+import {addBlog} from "../../../services/blogServices";
 
 function AddBlog() {
     //firebase
     const [imageUpload, setImageUpload] = useState(null);
     const [imageUrls, setImageUrls] = useState([]);
-    const [img,setImg] = useState("");
+    const [img, setImg] = useState("");
 
     const imagesListRef = ref(storage, "images/");
     const uploadFile = () => {
@@ -28,8 +29,8 @@ function AddBlog() {
             });
         });
         let newImg = ""
-        imageUrls.map((url)=>{
-            newImg=url
+        imageUrls.map((url) => {
+            newImg = url
         })
         setImg(newImg)
     };
@@ -50,9 +51,10 @@ function AddBlog() {
         return state.user.currentUser
     })
     let idUser = localStorage.getItem("idUser")
-    const handleAddBlogs = (values) => {
-        let data = {...values,idUser, img}
-        console.log(data)
+    const handleAddBlogs = async (values) => {
+        let data = {...values, idUser, img}
+        await dispatch(addBlog(data))
+        return navigate('/home')
     }
 
     return (
@@ -65,6 +67,7 @@ function AddBlog() {
                             content: ''
                         }}
                         onSubmit={(values) => {
+                            console.log(values)
                             handleAddBlogs(values)
                         }}>
                         <Form>
@@ -73,7 +76,12 @@ function AddBlog() {
                                 <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
                                 <Field type="text" className="form-control" id="exampleInputEmail1" name={'title'}/>
                             </div>
-
+                            {/*<div>*/}
+                            {/*    <Field name="status" component="select">*/}
+                            {/*        <option value={1}>Public</option>*/}
+                            {/*        <option value={0}>Private</option>*/}
+                            {/*    </Field>*/}
+                            {/*</div>*/}
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Content</label>
                                 <Field style={{height: 150}} type="text-field" className="form-control"

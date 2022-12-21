@@ -9,7 +9,6 @@ export default function Login() {
     const navigate = useNavigate()
     const handleLogin = async (values) => {
         let checkLogin = await dispatch(login(values))
-        console.log(checkLogin)
         if (checkLogin.payload.data.token) {
             console.log(checkLogin)
             if (checkLogin.payload.data.userName === values.userName) {

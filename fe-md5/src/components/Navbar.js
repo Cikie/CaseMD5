@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 export default function Navbar() {
     const dispatch = useDispatch();
     const user = useSelector(state => {
-        console.log(state)
         return state.user.currentUser
     })
     return (
