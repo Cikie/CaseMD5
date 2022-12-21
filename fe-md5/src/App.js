@@ -2,23 +2,21 @@ import './App.css';
 import Login from "./pages/Login";
 import {Route, Routes} from "react-router-dom";
 import Register from "./pages/Register";
-import Home from "./pages/Home/Home";
-import ListBlog from "./pages/Home/blog/listBlog";
-import AddBlog from "./pages/Home/blog/addBlog";
-import Admin from "./pages/Home/Admin/Admin";
+import {HomeUser} from "./pages/user/homeUser";
+import {AdminHome} from "./pages/admin/adminHome";
+import AddBlog from "./pages/user/blog/addBlog";
 
 function App() {
     return (
         <>
             <div className="container-fluid"></div>
             <Routes>
-                <Route path={''} element={<Login/>}/>
-                <Route path={'register'} element={<Register/>}/>
-                <Route path={'home'} element={<Home/>}>
-                    <Route path={''} element={<ListBlog/>}></Route>
+                <Route path={'/'} element={<Login/>}></Route>
+                <Route path={'/home'} element={<HomeUser/>}>
                     <Route path={'add-blog'} element={<AddBlog/>}></Route>
                 </Route>
-                <Route path={'admin'} element={<Admin/>}/>
+                <Route path={'/admin'} element={<AdminHome/>}/>
+                <Route path={'/register'} element={<Register/>}/>
             </Routes>
         </>
     )

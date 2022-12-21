@@ -49,7 +49,9 @@ export default function Navbar() {
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
-                                        <Link style={{paddingLeft:100}} className="nav-link active" aria-current="page" to="add-blog">
+
+                                        <Link style={{paddingLeft: 100}} className="nav-link active" aria-current="page"
+                                              to="add-blog">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                  fill="currentColor" className="bi bi-house-add-fill"
                                                  viewBox="0 0 16 16">
@@ -61,6 +63,8 @@ export default function Navbar() {
                                                     d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
                                             </svg>
                                         </Link>
+                                        <Link className="nav-link active" aria-current="page" to={"add-blog"}>Add
+                                            Blog</Link>
                                     </li>
 
                                 </ul>

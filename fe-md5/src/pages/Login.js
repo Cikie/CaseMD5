@@ -11,11 +11,12 @@ export default function Login() {
         let checkLogin = await dispatch(login(values))
         console.log(checkLogin)
         if (checkLogin.payload.data.token) {
+            console.log(checkLogin)
             if (checkLogin.payload.data.userName === values.userName) {
                 if (checkLogin.payload.data.role) {
-                    navigate('/admin')
+                    return navigate('admin')
                 } else {
-                    return navigate('/home')
+                    return navigate('home')
                 }
             }
         } else {
@@ -57,7 +58,7 @@ export default function Login() {
                             </div>
                             <button style={{width: "100%"}} type="submit" className="btn btn-primary">Login
                             </button>
-                            <Link style={{color: "white", textDecoration: "none"}} to={'register'}>
+                            <Link style={{color: "white", textDecoration: "none"}} to={'/register'}>
                                 <button style={{marginLeft: 110}} type="submit" className="btn btn-primary">Register
                                 </button>
                             </Link>
