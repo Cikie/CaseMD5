@@ -12,7 +12,7 @@ export const getBlogs = createAsyncThunk(
 export const addBlog = createAsyncThunk(
     'blogs/addBlog',
     async (data)=>{
-        const res = await axios.post('',data);
+        const res = await axios.post('http://localhost:8080/blog/add-blog',data);
         return data
     }
 )
