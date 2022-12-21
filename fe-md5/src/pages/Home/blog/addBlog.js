@@ -34,12 +34,19 @@ function AddBlog() {
 
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Content</label>
-                                <textarea style={{height:150,width:"100%",border:5,boxShadow:'2px 2px #adadad'}}  id="exampleInputPassword1"
+                                <textarea className={"form-control"} style={{height:120,width:"100%",borderRadius:10}}  id="exampleInputPassword1"
                                        name={'content'}/>
                             </div>
 
+                            <select style={{marginLeft:110}} className={"btn btn-primary"}>
+                                <option>Choice One!!</option>
+                                <option>Select 1</option>
+                                <option>Select 2</option>
+                            </select>
+
                             <div className="mb-3" style={{textAlign:"center"}}>
                                 <Field style={{}} type="file" name={'upload'}/>
+                                <button className={"btn btn-primary"}>Add File</button>
                             </div>
                             <button style={{width: "100%"}} type="submit" className="btn btn-primary">Add Blog
                             </button>
