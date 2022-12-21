@@ -1,5 +1,6 @@
 html {
     background: url("anh-nen-meo-cute_031335965.jpg") no-repeat;
+
 }
 
 .box {
@@ -48,7 +49,7 @@ html {
 .form-control{
     position: relative;
     border-bottom: 2px solid #adadad;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 .form-control input{
     width: 100%;

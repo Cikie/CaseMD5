@@ -34,10 +34,14 @@ function AddBlog() {
 
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Content</label>
-                                <Field style={{height:150}} type="text-field" className="form-control" id="exampleInputPassword1"
+                                <textarea style={{height:150,width:"100%",border:5,boxShadow:'2px 2px #adadad'}}  id="exampleInputPassword1"
                                        name={'content'}/>
                             </div>
-                            <button style={{width: "100%"}} type="submit" className="btn btn-primary">Add Blogs
+
+                            <div className="mb-3" style={{textAlign:"center"}}>
+                                <Field style={{}} type="file" name={'upload'}/>
+                            </div>
+                            <button style={{width: "100%"}} type="submit" className="btn btn-primary">Add Blog
                             </button>
                         </Form>
                     </Formik>

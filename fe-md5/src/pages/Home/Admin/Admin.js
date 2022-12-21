@@ -1,4 +1,4 @@
-import "./adminCss.css"
+import "../../../style/Blogs.css"
 import {Form, Formik} from "formik";
 import Navbar from "../../../components/Navbar";
 
