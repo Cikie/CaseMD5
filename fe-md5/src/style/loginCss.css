@@ -1,11 +1,12 @@
 html {
     background: url("anh-nen-meo-cute_031335965.jpg") no-repeat;
+    background-size: cover;
 }
 
 .box {
     background-color: rgba(0, 114, 151, 0.16);
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 25%;
     transform: translate(-50%,-50%);
     width: 400px;
@@ -48,7 +49,7 @@ html {
 .form-control{
     position: relative;
     border-bottom: 2px solid #adadad;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .form-control input{
     width: 100%;
