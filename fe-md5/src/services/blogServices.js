@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getBlogs = createAsyncThunk(
-        'blogs/getBlogs',
+    'blogs/getBlogs',
     async ()=>{
         const res = await axios.get('http://localhost:8080/blogs/get');
         return res.data;

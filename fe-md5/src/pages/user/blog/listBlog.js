@@ -1,88 +1,62 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getBlogs} from "../../../services/blogServices";
+import {addLikes, getLikes} from "../../../services/likeService";
 import {Form, Formik} from "formik";
-import {blogCss} from "../../../style/blogCss.css"
-
+import {Outlet, useNavigate} from "react-router-dom";
 
 export function ListBlog() {
-    // const [blogs,setBlogs]=useState()
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const countLike = useRef(0);
+    const [sumLikes,setSumLike]=useState(0)
     const blogs = useSelector(({blogs}) => {
-        console.log(blogs.blogs)
         return blogs.blogs;
     });
+    const likes = useSelector(({likes}) => {
+        console.log(likes.likes)
+        return likes.likes
+    })
+
     useEffect(() => {
         dispatch(getBlogs())
+    }, []);
+    useEffect(() => {
+        dispatch(getLikes())
     }, [])
     return (
         <>
-            <div>
-                <Formik initialValues={{
-                    name: ''
-                }}
+            {
+                blogs.map(blog => {
 
-                        onSubmit={() => {
+                        likes.map((item) => {
+                            if (item.idBlogId === blog.id) {
+                                countLike.current = countLike.current + 1;
+                            }
+                        })
 
-                        }}>
-                    <Form>
-                        <div className="main">
-                            <div className={"row col-12"}>
-                                <div className="left  bg-info bg-gradient bg-opacity-10">
-                                    <div className="col-3">
-                                        <div className="menu1">List Blog More Like</div>
-                                        <div className="menu2">More Comment</div>
-                                    </div>
-                                </div>
-                                <div className="mid bg-info bg-gradient bg-opacity-10">
-                                    <div className="col-6 flex flex-col overflow-auto">
-                                            <table className="table table-striped">
-                                                <tbody>
-                                                {
-                                                    blogs.map((blog, index) => (
-                                                        <tr>
-                                                            <div>
-                                                                <div>
-                                                                    <img
-                                                                        src={require('../../../style/mark-zuckerberg-tung-tu-mat-dong-sang-lap-whatsapp-2.jpg')}
-                                                                        alt={'error'}
-                                                                        style={{
-                                                                            width: 50,
-                                                                            height: 50,
-                                                                            borderRadius: 30,
-                                                                            marginLeft: 100
-                                                                        }}/>
-                                                                    <div>
-                                                                        <h1>{blog.title}</h1>
-                                                                        <p style={{marginLeft: 100}}
-                                                                           className={""}>{new Date().toLocaleString()}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <img src={blog.img} alt={"anh loi"}/>
-                                                            <p>{blog.content}</p>
-                                                            <button>Like</button>
-                                                            :{blog.like}<br/>
-                                                            <button>Comment</button>
-                                                        </tr>
-                                                    ))
-                                                }
-                                                </tbody>
-                                            </table>
-                                    </div>
-                                </div>
-                                <div className="col-3 bg-info bg-gradient bg-opacity-10">
-                                    <div className="right">
-                                        <div className="right-content1"></div>
-                                        <div className="right-content2"></div>
-                                        <div className="right-content3"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Form>
-                </Formik>
-            </div>
+                    return (
+                        <>
+                            <h1>{blog.title}</h1>
+                            <p>{blog.content}</p>
+                            <img src={blog.img} alt={"anh loi"}/><br/>
+                            <button
+                                className={"ml-3"}
+                                onClick={(values) => {
+                                    values = {
+                                        idBlog: blog.id,
+                                        idUser: +localStorage.getItem("idUser")
+                                    }
+                                    dispatch(addLikes(values))
+                                    console.log(countLike.current)
+                                }}
+                            > Like
+                            </button>
+                            <h3>Like:{countLike.current}</h3>
+                        </>
+                    )
+                })
+            }
         </>
     )
 }
