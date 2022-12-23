@@ -76,12 +76,6 @@ function AddBlog() {
                                 <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
                                 <Field type="text" className="form-control" id="exampleInputEmail1" name={'title'}/>
                             </div>
-                            {/*<div>*/}
-                            {/*    <Field name="status" component="select">*/}
-                            {/*        <option value={1}>Public</option>*/}
-                            {/*        <option value={0}>Private</option>*/}
-                            {/*    </Field>*/}
-                            {/*</div>*/}
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Content</label>
                                 <Field style={{height: 150}} type="text-field" className="form-control"

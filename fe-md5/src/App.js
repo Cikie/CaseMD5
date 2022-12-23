@@ -6,6 +6,7 @@ import {HomeUser} from "./pages/user/homeUser";
 import {AdminHome} from "./pages/admin/adminHome";
 import AddBlog from "./pages/user/blog/addBlog";
 import {ListBlog} from "./pages/user/blog/listBlog";
+import {ListUser} from "./pages/admin/user/listUser";
 
 function App() {
     return (
@@ -17,7 +18,10 @@ function App() {
                     <Route path={'add-blog'} element={<AddBlog/>}></Route>
                     <Route path={''} element={<ListBlog/>}></Route>
                 </Route>
-                <Route path={'/admin'} element={<AdminHome/>}/>
+                <Route path={'/admin'} element={<AdminHome/>}>
+                    <Route path={'list-user'} element={<ListUser/>}></Route>
+                    <Route path={'list-blog'} element={<ListBlog/>}></Route>
+                </Route>
                 <Route path={'/register'} element={<Register/>}/>
             </Routes>
         </>
